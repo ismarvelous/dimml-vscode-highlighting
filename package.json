@@ -1,0 +1,26 @@
+{
+    "name": "dimml",
+    "displayName": "dimml",
+    "description": "Dimml language support",
+    "version": "0.0.1",
+    "publisher": "Marvelous",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "dimml",
+            "aliases": ["Dimml", "dimml"],
+            "extensions": [".dimml"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "dimml",
+            "scopeName": "source.dimml",
+            "path": "./syntaxes/dimml.tmLanguage.json"
+        }]
+    }
+}

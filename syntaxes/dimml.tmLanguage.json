@@ -1,0 +1,90 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Dimml",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#stringsdouble"
+		},
+		{
+			"include": "#stringssingle"
+		},
+		{
+			"include": "#quotedother"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#flows"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.dimml",
+				"match": "\\b(def|val|flow|plugin|on|do|concept|extends|const|version|match|event|select|code)\\b"
+			}]
+		},
+		"stringsdouble": {
+			"name": "string.quoted.double.dimml",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dimml",
+					"match": "\\\\."
+				}
+			]
+		},
+		"stringssingle": {
+			"name": "string.quoted.single.dimml",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dimml",
+					"match": "\\\\."
+				}
+			]
+		},
+		"quotedother": {
+			"name": "entity.other.dimml",
+			"begin": "`",
+			"end": "`",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dimml",
+					"match": "\\\\."
+				}
+			] 
+		},
+		"comments": {
+			"patterns": [
+				{
+					"match": "(//).*",
+					"name": "comment.line.double-slash.dimml"
+				},
+				{
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.dimml"
+				}
+			]
+		},
+		"flows": {
+			"patterns": [
+				{
+					"match": "(=> )\\b([A-z]*)\\b",
+					"captures": {
+						"1": { "name": "entity.dimml" },
+						"2": { "name": "support.type.property-name.dimml" }
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "source.dimml"
+}
